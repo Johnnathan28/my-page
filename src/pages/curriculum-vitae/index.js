@@ -116,7 +116,7 @@ function Experiences({name, experiences}) {
 
 function Projects({src}) {
   return (
-    <div className="projects">
+    <div className="Projects">
       {src.map(e => e.intoJSX())}
     </div>
   );
