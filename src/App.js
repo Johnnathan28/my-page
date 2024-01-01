@@ -1,10 +1,9 @@
 import './App.css';
+import CurriculumVitae from "./pages/curriculum-vitae";
 
 function App() {
   return (
-    <div className="App">
-      <h1>hello world!</h1>
-    </div>
+    <CurriculumVitae/>
   );
 }
 
