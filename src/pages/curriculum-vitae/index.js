@@ -11,11 +11,11 @@ class Tag {
 }
 
 class Experience {
-  constructor(name, from="00-00-0000", to="00-00-0000", desc="") {
+  constructor(name, from="0000-00-00", to="0000-00-00", desc="") {
     this.name = name;
-    this.from = from;
     this.desc = desc;
-    this.to = to;
+    this.from = new Date(from);
+    this.to = new Date(to);
     this.tags = [];
   }
 
@@ -25,14 +25,38 @@ class Experience {
     return this;
   }
 
+  getStringDate(date) {
+    let d = date.getDay();
+    let m = date.getMonth() + 1;
+    let y = date.getFullYear();
+
+    if (Number.isNaN(d) || Number.isNaN(m) || Number.isNaN(y)) {
+      return "";
+    }
+
+    d = "0".repeat((Math.floor(d/10) - 1) * -1) + d.toString();
+    m = "0".repeat((Math.floor(m/10) - 1) * -1) + m.toString();
+
+    return `${d}/${m}/${y}`;
+  }
+
   intoJSX() {
+    let stringDateFrom = this.getStringDate(this.from);
+    let stringDateTo = this.getStringDate(this.to);
+
     return (
       <div className="Experience">
 	<span className="bold-text">{this.name}<br/></span>
 	{this.desc !== "" 
 	  ? <span className="gray-text">{this.desc}<br/></span>
 	  : <></>}
-      	<span>from {this.from} to {this.to}</span>
+	{stringDateFrom !== ""
+	  ? <span className="gray-text">{stringDateFrom}</span>
+	  : <></>}
+	<span> </span>
+	{stringDateTo !== ""
+	  ? <span className="gray-text">{stringDateTo}</span>
+	  : <></>}
       </div>
     );
   }
@@ -58,8 +82,8 @@ const g = {
   },
   occupation: "Hobbyist programmer",
   education: [
-    new Experience("Random school", "00-00-0000", "00-00-0000", "High School"),
-    new Experience("Michail University", "00-00-0000", "00-00-0000", "Computer Science")
+    new Experience("Random school", "2014-02-02", "2023-12-13", "High School"),
+    new Experience("Michail University", "2024-03-04", "2028-11-29", "Computer Science")
   ],
   pastJobs: [
     new Experience("Good Enterprise")
