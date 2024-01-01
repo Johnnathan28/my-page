@@ -28,8 +28,10 @@ class Experience {
   intoJSX() {
     return (
       <div className="Experience">
-	<span className="bold-text">{this.name}</span><br/>
-	<span className="gray-text">{this.desc}</span><br/>
+	<span className="bold-text">{this.name}<br/></span>
+	{this.desc !== "" 
+	  ? <span className="gray-text">{this.desc}<br/></span>
+	  : <></>}
       	<span>from {this.from} to {this.to}</span>
       </div>
     );
