@@ -6,7 +6,7 @@ class Tag {
   }
 
   intoJSX() {
-    return <span>{this.name} </span>;
+    return <span className="Tag">{this.name}</span>;
   }
 }
 
@@ -51,11 +51,11 @@ class Experience {
 	  ? <span className="gray-text">{this.desc}<br/></span>
 	  : <></>}
 	{stringDateFrom !== ""
-	  ? <span className="gray-text">{stringDateFrom}</span>
+	  ? <span className="gray-text">From {stringDateFrom}</span>
 	  : <></>}
 	<span> </span>
 	{stringDateTo !== ""
-	  ? <span className="gray-text">{stringDateTo}</span>
+	  ? <span className="gray-text"> to {stringDateTo}</span>
 	  : <></>}
       </div>
     );
@@ -86,7 +86,7 @@ const g = {
     new Experience("Michail University", "2024-03-04", "2028-11-29", "Computer Science")
   ],
   pastJobs: [
-    new Experience("Good Enterprise")
+    new Experience("Good Enterprise", "2025-11-03", "2026-11-02")
       .addTag("clients")
       .addTag("emotional"),
   ],
