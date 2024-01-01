@@ -11,9 +11,10 @@ class Tag {
 }
 
 class Experience {
-  constructor(name, from="00-00-0000", to="00-00-0000") {
+  constructor(name, from="00-00-0000", to="00-00-0000", desc="") {
     this.name = name;
     this.from = from;
+    this.desc = desc;
     this.to = to;
     this.tags = [];
   }
@@ -28,6 +29,7 @@ class Experience {
     return (
       <div className="Experience">
 	<span>{this.name}</span><br/>
+	<span>{this.desc}</span><br/>
       	<span>from {this.from} to {this.to}</span>
       </div>
     );
@@ -54,8 +56,8 @@ const g = {
   },
   occupation: "Hobbyist programmer",
   education: [
-    new Experience("Random school", "00-00-0000", "00-00-0000"),
-    new Experience("Michail University", "00-00-0000", "00-00-0000")
+    new Experience("Random school", "00-00-0000", "00-00-0000", "High School"),
+    new Experience("Michail University", "00-00-0000", "00-00-0000", "Computer Science")
   ],
   pastJobs: [
     new Experience("Good Enterprise")
