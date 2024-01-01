@@ -85,6 +85,24 @@ class Skill {
   }
 }
 
+class Project {
+  constructor(name, link, desc) {
+    this.name = name;
+    this.link = link;
+    this.desc = desc;
+  }
+
+  intoJSX() {
+    return (
+      <div>
+	<label>{this.name}</label><br/>
+	<a href={this.link}>{this.link}</a><br/>
+	<p>{this.desc}</p>
+      </div>
+    );
+  }
+}
+
 function Experiences({name, experiences}) {
   experiences = experiences || [];
   return (
@@ -92,6 +110,14 @@ function Experiences({name, experiences}) {
       <h3>{name}</h3>
       {experiences.map(e => e.intoJSX())}
       {experiences.map(e => e.tags.map(t => t.intoJSX()))}
+    </div>
+  );
+}
+
+function Projects({src}) {
+  return (
+    <div className="projects">
+      {src.map(e => e.intoJSX())}
     </div>
   );
 }
@@ -123,21 +149,9 @@ const g = {
     new Skill("English", Level.Intermediate)
   ],
   projects: [
-    {
-      name: "project-a",
-      link: "https://www.github.com/user/project-a",
-      description: "what this project is about?",
-    },
-    {
-      name: "project-b",
-      link: "https://www.github.com/user/project-b",
-      description: "what this project is about?",
-    },
-    {
-      name: "project-c",
-      link: "https://www.github.com/user/project-c",
-      description: "what this project is about?",
-    },
+    new Project("project-a",  "https://www.github.com/user/project-a",  "what this project is about?"),
+    new Project("project-b",  "https://www.github.com/user/project-b",  "what this project is about?"),
+    new Project("project-c",  "https://www.github.com/user/project-c",  "what this project is about?")
   ]
 };
 
@@ -168,12 +182,7 @@ function CurriculumVitae() {
       <hr/>
       <div>
 	<h3>Projects</h3>
-	{g.projects.map(e => (
-	  <div>
-	    <div>{e.name}</div>
-	    <a href={e.link}>{e.link}</a>
-	  </div>
-	))}
+	<Projects src={g.projects}/>
       </div>
       <hr/>
       <div>
