@@ -42,9 +42,9 @@ h3 {
 }
 
 .Tag {
+  margin: 2px;
   border: 1px solid var(--gray1);
   border-radius: 0.7em;
-  margin: 2px;
   padding: 0px 8px;
 }
 

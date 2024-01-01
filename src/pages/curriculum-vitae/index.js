@@ -57,6 +57,9 @@ class Experience {
 	{stringDateTo !== ""
 	  ? <span className="gray-text"> to {stringDateTo}</span>
 	  : <></>}
+	{this.tags.length > 0
+	  ? <div style={{marginTop: "5px"}}>{this.tags.map(t => t.intoJSX())}</div>
+	  : <></>}
       </div>
     );
   }
@@ -125,12 +128,10 @@ function Header({resume}) {
 }
 
 function Experiences({name, experiences}) {
-  experiences = experiences || [];
   return (
     <div>
       <h3>{name}</h3>
       {experiences.map(e => e.intoJSX())}
-      {experiences.map(e => e.tags.map(t => t.intoJSX()))}
     </div>
   );
 }
@@ -152,7 +153,9 @@ const g = {
   },
   occupation: "Hobbyist programmer",
   education: [
-    new Experience("Random school", "2014-02-02", "2023-12-13", "High School"),
+    new Experience("Random school", "2014-02-02", "2023-12-13", "High School")
+      .addTag("sciences")
+      .addTag("math"),
     new Experience("Michail University", "2024-03-04", "2028-11-29", "Computer Science")
   ],
   pastJobs: [
