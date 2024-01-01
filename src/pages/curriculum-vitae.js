@@ -46,7 +46,7 @@ function Experiences({name, experiences}) {
 
 const g = {
   name: "Foo Bar Baz",
-  about: "I am Foo Bar Baz, and I love to code",
+  about: "Where can I get some? There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
   contact: {
     email: "foo.bar.baz@digital.com",
     phone: "+999999999",
@@ -93,6 +93,7 @@ function CurriculumVitae() {
 	<h1>{g.name}</h1>
 	<p>{g.occupation}</p>
       </div>
+      <h3>about</h3>
       <p>{g.about}</p>
       <Experiences name="Education" experiences={g.education}/>
       <Experiences name="Past Jobs" experiences={g.pastJobs}/>
