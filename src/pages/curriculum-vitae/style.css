@@ -8,6 +8,14 @@ h1, h2, h3, h4, p {
   margin: 0px;
 }
 
+h3 {
+  margin: 0 0 10px 0;
+}
+
+.icon {
+  font-size: 18pt;
+}
+
 .link {
   color: var(--gray0);
 }
@@ -38,6 +46,16 @@ h1, h2, h3, h4, p {
   border-radius: 0.7em;
   margin: 2px;
   padding: 0px 8px;
+}
+
+.Skill {
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.Skill .icon {
+  margin: 0 10px 0 0;
 }
 
 .Projects {

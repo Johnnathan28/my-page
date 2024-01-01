@@ -71,15 +71,19 @@ const Level = {
 }
 
 class Skill {
-  constructor(name, level) {
+  constructor(name, level, fontIcon="") {
     this.name = name;
     this.level = level;
+    this.fontIcon = fontIcon;
   }
 
   intoJSX() {
     return (
-      <div>
-	<span>{this.name}</span> - <span>{this.level}</span>
+      <div className="Skill">
+	{this.fontIcon !== ""
+	  ? <i className={this.fontIcon + " icon"}></i>
+	  : <></>}
+	<span>{this.name} - {this.level}</span>
       </div>
     );
   }
@@ -157,9 +161,9 @@ const g = {
       .addTag("emotional"),
   ],
   skills: [
-    new Skill("Python", Level.Intermediate),
-    new Skill("C", Level.Fluent),
-    new Skill("Rust", Level.Beginner)
+    new Skill("Python", Level.Intermediate, "devicon-python-plain"),
+    new Skill("C", Level.Skilled, "devicon-c-plain"),
+    new Skill("Rust", Level.Beginner, "devicon-rust-plain")
   ],
   languages: [
     new Skill("Portuguese Brazilian", Level.Native),
