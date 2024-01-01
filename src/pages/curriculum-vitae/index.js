@@ -62,6 +62,29 @@ class Experience {
   }
 }
 
+const Level = {
+  Beginner: "begginer",
+  Intermediate: "intermediate",
+  Skilled: "skilled",
+  Fluent: "fluent",
+  Native: "native" // This is specific for native language.
+}
+
+class Skill {
+  constructor(name, level) {
+    this.name = name;
+    this.level = level;
+  }
+
+  intoJSX() {
+    return (
+      <div>
+	<span>{this.name}</span> - <span>{this.level}</span>
+      </div>
+    );
+  }
+}
+
 function Experiences({name, experiences}) {
   experiences = experiences || [];
   return (
@@ -91,11 +114,14 @@ const g = {
       .addTag("emotional"),
   ],
   skills: [
-    "Python",
-    "C",
-    "Rust"
+    new Skill("Python", Level.Intermediate),
+    new Skill("C", Level.Fluent),
+    new Skill("Rust", Level.Beginner)
   ],
-  languages: ["Portuguese Brazilian", "English"],
+  languages: [
+    new Skill("Portuguese Brazilian", Level.Native),
+    new Skill("English", Level.Intermediate)
+  ],
   projects: [
     {
       name: "project-a",
@@ -132,12 +158,12 @@ function CurriculumVitae() {
       <hr/>
       <div>
 	<h3>Languages</h3>
-	{g.languages.map(e => <span>{e}<br/></span>)}
+	{g.languages.map(e => e.intoJSX())}
       </div>
       <hr/>
       <div>
 	<h3>Skills</h3>
-	{g.skills.map(e => <span>{e}<br/></span>)}
+	{g.skills.map(e => e.intoJSX())}
       </div>
       <hr/>
       <div>
