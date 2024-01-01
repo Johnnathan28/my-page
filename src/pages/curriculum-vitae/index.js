@@ -1,3 +1,5 @@
+import "./style.css";
+
 class Tag {
   constructor(name) {
     this.name = name;
@@ -93,18 +95,24 @@ function CurriculumVitae() {
 	<h1>{g.name}</h1>
 	<p>{g.occupation}</p>
       </div>
+      <hr/>
       <h3>about</h3>
       <p>{g.about}</p>
+      <hr/>
       <Experiences name="Education" experiences={g.education}/>
+      <hr/>
       <Experiences name="Past Jobs" experiences={g.pastJobs}/>
+      <hr/>
       <div>
 	<h3>Languages</h3>
 	{g.languages.map(e => <span>{e}<br/></span>)}
       </div>
+      <hr/>
       <div>
 	<h3>Skills</h3>
 	{g.skills.map(e => <span>{e}<br/></span>)}
       </div>
+      <hr/>
       <div>
 	<h3>Projects</h3>
 	{g.projects.map(e => (
@@ -114,6 +122,7 @@ function CurriculumVitae() {
 	  </div>
 	))}
       </div>
+      <hr/>
       <div>
 	<h3>contact</h3>
 	<a href={g.contact.email}>{g.contact.email}</a><br/>
