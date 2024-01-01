@@ -1,0 +1,8 @@
+.page {
+  display: flex;
+  justify-content: center;
+}
+
+.page .container {
+  max-width: 680px;
+}

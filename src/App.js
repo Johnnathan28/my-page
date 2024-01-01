@@ -3,7 +3,11 @@ import CurriculumVitae from "./pages/curriculum-vitae";
 
 function App() {
   return (
-    <CurriculumVitae/>
+    <div className="page">
+      <div className="container">
+	<CurriculumVitae/>
+      </div>
+    </div>
   );
 }
 
