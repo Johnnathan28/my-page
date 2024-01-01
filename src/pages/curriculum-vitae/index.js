@@ -95,8 +95,8 @@ class Project {
   intoJSX() {
     return (
       <div>
-	<label>{this.name}</label><br/>
-	<a href={this.link}>{this.link}</a><br/>
+	<label className="bold-text">{this.name}</label><br/>
+	<a className="link" href={this.link}>{this.link}</a><br/>
 	<p>{this.desc}</p>
       </div>
     );
@@ -166,7 +166,7 @@ const g = {
     new Skill("English", Level.Intermediate)
   ],
   projects: [
-    new Project("project-a",  "https://www.github.com/user/project-a",  "what this project is about?"),
+    new Project("project-a",  "https://www.github.com/user/project-a/branch/main/test.js",  "what this project is about? A longer description to fill for testing porpuse"),
     new Project("project-b",  "https://www.github.com/user/project-b",  "what this project is about?"),
     new Project("project-c",  "https://www.github.com/user/project-c",  "what this project is about?")
   ]

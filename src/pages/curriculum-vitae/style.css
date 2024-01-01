@@ -1,5 +1,15 @@
+:root {
+  --gray0: #888;
+  --gray1: #aaa;
+  --projectrs-gaps: 10px;
+}
+
 h1, h2, h3, h4, p {
   margin: 0px;
+}
+
+.link {
+  color: var(--gray0);
 }
 
 .bold-text {
@@ -7,7 +17,7 @@ h1, h2, h3, h4, p {
 }
 
 .gray-text {
-  color: gray;
+  color: var(--gray0);
 }
 
 .Header {
@@ -24,13 +34,23 @@ h1, h2, h3, h4, p {
 }
 
 .Tag {
-  border: 1px solid gray;
+  border: 1px solid var(--gray1);
   border-radius: 0.7em;
   margin: 2px;
   padding: 0px 8px;
 }
 
 .Projects {
+  margin: 10px 0;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-gap: var(--projectrs-gaps);
+  grid-template-columns:
+    calc(50% - var(--projectrs-gaps) / 2)
+    calc(50% - var(--projectrs-gaps) / 2);
+}
+
+.Projects > div {
+  border: 1px solid var(--gray1);
+  border-radius: 10px;
+  padding: var(--projectrs-gaps);
 }
