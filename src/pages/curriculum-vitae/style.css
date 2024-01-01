@@ -10,6 +10,15 @@ h1, h2, h3, h4, p {
   color: gray;
 }
 
+.Header {
+  display: flex;
+}
+
+.Header-contact {
+  display: flex;
+  flex-direction: column;
+}
+
 .Experience {
   margin: 10px 0px 5px 0px;
 }

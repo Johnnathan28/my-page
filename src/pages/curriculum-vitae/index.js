@@ -103,6 +103,23 @@ class Project {
   }
 }
 
+function Header({resume}) {
+  return (
+    <div className="Header">
+      <div className="Heder.info">
+	<h1>{resume.name}</h1>
+	<p>{resume.occupation}</p>
+      </div>
+      <span style={{flex: 1}}></span>
+      <div className="Header-contact">
+	<span style={{flex: 1}}></span>
+	<p>{resume.contact.phone}</p>
+	<p>{resume.contact.email}</p>
+      </div>
+    </div>
+  );
+}
+
 function Experiences({name, experiences}) {
   experiences = experiences || [];
   return (
@@ -127,7 +144,7 @@ const g = {
   about: "Where can I get some? There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
   contact: {
     email: "foo.bar.baz@digital.com",
-    phone: "+999999999",
+    phone: "+55 (18) 99999-9999",
   },
   occupation: "Hobbyist programmer",
   education: [
@@ -158,10 +175,7 @@ const g = {
 function CurriculumVitae() {
   return (
     <div className="App">
-      <div>
-	<h1>{g.name}</h1>
-	<p>{g.occupation}</p>
-      </div>
+      <Header resume={g}/>
       <hr/>
       <h3>about</h3>
       <p>{g.about}</p>
@@ -183,12 +197,6 @@ function CurriculumVitae() {
       <div>
 	<h3>Projects</h3>
 	<Projects src={g.projects}/>
-      </div>
-      <hr/>
-      <div>
-	<h3>contact</h3>
-	<a href={g.contact.email}>{g.contact.email}</a><br/>
-	<span>{g.contact.phone}</span>
       </div>
     </div>
   );
