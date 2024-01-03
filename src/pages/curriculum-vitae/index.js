@@ -181,7 +181,7 @@ const g = {
 
 function CurriculumVitae() {
   return (
-    <div className="App">
+    <div className="Curriculum-vitae">
       <Header resume={g}/>
       <hr/>
       <h3>about</h3>
