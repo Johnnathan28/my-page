@@ -3,6 +3,7 @@
   --gray1: #aaa;
   --projectrs-gaps: 10px;
   --perfil-img-size: 150px;
+  --perfil-img-margin: calc(var(--perfil-img-size) * 0.05);
 }
 
 h1, h2, h3, h4, p {
@@ -36,6 +37,8 @@ h3 {
 .Header-img-box {
   max-width: var(--perfil-img-size);
   max-height: var(--perfil-img-size);
+  margin: var(--perfil-img-margin);
+  border-radius: var(--perfil-img-margin);
   display: flex;
   align-items: center;
   justify-content: center;
