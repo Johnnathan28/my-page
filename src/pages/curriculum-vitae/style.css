@@ -2,6 +2,7 @@
   --gray0: #888;
   --gray1: #aaa;
   --projectrs-gaps: 10px;
+  --perfil-img-size: 150px;
 }
 
 h1, h2, h3, h4, p {
@@ -30,6 +31,19 @@ h3 {
 
 .Header {
   display: flex;
+}
+
+.Header-img-box {
+  max-width: var(--perfil-img-size);
+  max-height: var(--perfil-img-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.Header-img {
+  width: 100%;
 }
 
 .Header-contact {

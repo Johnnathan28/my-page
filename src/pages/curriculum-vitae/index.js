@@ -1,4 +1,5 @@
 import "./style.css";
+import perfilImage from "../../assets/me.jpg";
 
 class Tag {
   constructor(name) {
@@ -113,7 +114,10 @@ class Project {
 function Header({resume}) {
   return (
     <div className="Header">
-      <div className="Heder.info">
+      <div className="Header-img-box">
+	<img className="Header-img" src={perfilImage} alt="me"/>
+      </div>
+      <div className="Header-info">
 	<h1>{resume.name}</h1>
 	<p>{resume.occupation}</p>
       </div>
