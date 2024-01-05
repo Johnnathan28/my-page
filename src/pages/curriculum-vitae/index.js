@@ -119,13 +119,25 @@ function SimpleSkill({skill}) {
   );
 }
 
-function ProgressSkill({skill}) {
+function ProgressBar({value}) {
+  const width = value.toString() + "%";
   return (
-    <div>
+    <div className="progress-bar">
+      <div className="progress-bar-inner" style={{width}}></div>
+    </div>
+  );
+}
+
+function ProgressSkill({skill}) {
+  const display = "flex";
+  const alignItems = "center";
+  return (
+    <div style={{display, alignItems}}>
       {skill.fontIcon !== ""
 	? <i className={skill.fontIcon + " icon"}></i>
 	: <></>}
-      <input type="range" min="0" max="100" value={skill.level.percentage()} disabled/>
+      <span style={{width: "5px"}}></span>
+      <ProgressBar value={skill.level.percentage()}/>
     </div>
   );
 }

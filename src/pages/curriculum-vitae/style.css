@@ -30,6 +30,18 @@ h3 {
   color: var(--gray0);
 }
 
+.progress-bar {
+  width: 200px;
+  height: 6px;
+  border: 1px solid var(--gray1);
+  border-radius: 3px;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background: var(--gray0);
+}
+
 .Header {
   display: flex;
 }
