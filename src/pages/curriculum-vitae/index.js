@@ -6,8 +6,8 @@ class Tag {
     this.name = name;
   }
 
-  intoJSX() {
-    return <span className="Tag">{this.name}</span>;
+  intoJSX(key=null) {
+    return <span key={key} className="Tag">{this.name}</span>;
   }
 }
 
@@ -41,12 +41,12 @@ class Experience {
     return `${d}/${m}/${y}`;
   }
 
-  intoJSX() {
+  intoJSX(key=null) {
     let stringDateFrom = this.getStringDate(this.from);
     let stringDateTo = this.getStringDate(this.to);
 
     return (
-      <div className="Experience">
+      <div key={key} className="Experience">
 	<span className="bold-text">{this.name}<br/></span>
 	{this.desc !== "" 
 	  ? <span className="gray-text">{this.desc}<br/></span>
@@ -59,7 +59,7 @@ class Experience {
 	  ? <span className="gray-text"> to {stringDateTo}</span>
 	  : <></>}
 	{this.tags.length > 0
-	  ? <div style={{marginTop: "5px"}}>{this.tags.map(t => t.intoJSX())}</div>
+	  ? <div style={{marginTop: "5px"}}>{this.tags.map((t, i) => t.intoJSX(i))}</div>
 	  : <></>}
       </div>
     );
@@ -101,9 +101,9 @@ class Level {
     return Math.floor(this.level / Level.Fluent * 100);
   }
 
-  intoJSX() {
+  intoJSX(key=null) {
     return (
-      <span>{this.toString()}</span>
+      <span key={key}>{this.toString()}</span>
     );
   }
 }
@@ -145,9 +145,9 @@ class Project {
     this.desc = desc;
   }
 
-  intoJSX() {
+  intoJSX(key=null) {
     return (
-      <div>
+      <div key={key}>
 	<label className="bold-text">{this.name}</label><br/>
 	<a className="link" href={this.link}>{this.link}</a><br/>
 	<p>{this.desc}</p>
@@ -180,7 +180,7 @@ function Experiences({name, experiences}) {
   return (
     <div>
       <h3>{name}</h3>
-      {experiences.map(e => e.intoJSX())}
+      {experiences.map((e, i) => e.intoJSX(i))}
     </div>
   );
 }
@@ -188,7 +188,7 @@ function Experiences({name, experiences}) {
 function Projects({src}) {
   return (
     <div className="Projects">
-      {src.map(e => e.intoJSX())}
+      {src.map((e, i) => e.intoJSX(i))}
     </div>
   );
 }
@@ -242,12 +242,12 @@ function CurriculumVitae() {
       <hr/>
       <div>
 	<h3>Languages</h3>
-	{g.languages.map(e => <SimpleSkill skill={e}/>)}
+	{g.languages.map((e, i) => <SimpleSkill key={i} skill={e}/>)}
       </div>
       <hr/>
       <div>
 	<h3>Skills</h3>
-	{g.skills.map(e => <ProgressSkill skill={e}/>)}
+	{g.skills.map((e, i) => <ProgressSkill key={i} skill={e}/>)}
       </div>
       <hr/>
       <div>
