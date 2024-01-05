@@ -66,12 +66,39 @@ class Experience {
   }
 }
 
-const Level = {
-  Beginner: "begginer",
-  Intermediate: "intermediate",
-  Skilled: "skilled",
-  Fluent: "fluent",
-  Native: "native" // This is specific for native language.
+class Level {
+  static Begginer     = 0;
+  static Intermediate = 500;
+  static Skilled      = 1000;
+  static Fluent       = 5000;
+  /* Specific for native language, this does not means
+   * you are good at it, it just means you do it since
+   * you was born. */
+  static Native = -1;
+
+  constructor(level) {
+    this.level = level;
+  }
+
+  toString() {
+    if (this.level < Level.Begginer) {
+      return "Native";
+    } else if (this.level >= Level.Fluent) {
+      return "Fluent";
+    } else if (this.level >= Level.Skilled) {
+      return "Skilled";
+    } else if (this.level >= Level.Intermediate) {
+      return "Intermediate";
+    } else {
+      return "Begginer";
+    }
+  }
+
+  intoJSX() {
+    return (
+      <span>{this.toString()}</span>
+    );
+  }
 }
 
 class Skill {
@@ -87,7 +114,7 @@ class Skill {
 	{this.fontIcon !== ""
 	  ? <i className={this.fontIcon + " icon"}></i>
 	  : <></>}
-	<span>{this.name} - {this.level}</span>
+	<span>{this.name} - {this.level.intoJSX()}</span>
       </div>
     );
   }
@@ -168,13 +195,13 @@ const g = {
       .addTag("emotional"),
   ],
   skills: [
-    new Skill("Python", Level.Intermediate, "devicon-python-plain"),
-    new Skill("C", Level.Skilled, "devicon-c-plain"),
-    new Skill("Rust", Level.Beginner, "devicon-rust-plain")
+    new Skill("Python", new Level(0), "devicon-python-plain"),
+    new Skill("C", new Level(0), "devicon-c-plain"),
+    new Skill("Rust", new Level(0), "devicon-rust-plain")
   ],
   languages: [
-    new Skill("Portuguese Brazilian", Level.Native),
-    new Skill("English", Level.Intermediate)
+    new Skill("Portuguese Brazilian", new Level(Level.Native)),
+    new Skill("English", new Level(Level.Intermediate))
   ],
   projects: [
     new Project("project-a",  "https://www.github.com/user/project-a/branch/main/test.js",  "what this project is about? A longer description to fill for testing porpuse"),
