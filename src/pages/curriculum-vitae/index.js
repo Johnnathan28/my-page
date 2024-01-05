@@ -74,17 +74,20 @@ class Level {
   /* Specific for native language, this does not means
    * you are good at it, it just means you do it since
    * you was born. */
-  static Native = -1;
+  static Native       = 5000;
 
-  constructor(level) {
+  constructor(level, speakLanguage=false) {
     this.level = level;
+    this.speakLanguage = speakLanguage;
   }
 
   toString() {
-    if (this.level < Level.Begginer) {
-      return "Native";
-    } else if (this.level >= Level.Fluent) {
-      return "Fluent";
+    if (this.level >= Level.Fluent) {
+      if (this.speakLanguage) {
+	return "Native";
+      } else {
+	return "Fluent";
+      }
     } else if (this.level >= Level.Skilled) {
       return "Skilled";
     } else if (this.level >= Level.Intermediate) {
@@ -94,6 +97,10 @@ class Level {
     }
   }
 
+  percentage() {
+    return Math.floor(this.level / Level.Fluent * 100);
+  }
+
   intoJSX() {
     return (
       <span>{this.toString()}</span>
@@ -101,22 +108,33 @@ class Level {
   }
 }
 
+function SimpleSkill({skill}) {
+  return (
+    <div>
+      {skill.fontIcon !== ""
+	? <i className={skill.fontIcon + " icon"}></i>
+	: <></>}
+      <span>{skill.name} - {skill.level.intoJSX()}</span>
+    </div>
+  );
+}
+
+function ProgressSkill({skill}) {
+  return (
+    <div>
+      {skill.fontIcon !== ""
+	? <i className={skill.fontIcon + " icon"}></i>
+	: <></>}
+      <input type="range" min="0" max="100" value={skill.level.percentage()} disabled/>
+    </div>
+  );
+}
+ 
 class Skill {
-  constructor(name, level, fontIcon="") {
+  constructor(name, level=0, fontIcon="", showName=false) {
     this.name = name;
     this.level = level;
     this.fontIcon = fontIcon;
-  }
-
-  intoJSX() {
-    return (
-      <div className="Skill">
-	{this.fontIcon !== ""
-	  ? <i className={this.fontIcon + " icon"}></i>
-	  : <></>}
-	<span>{this.name} - {this.level.intoJSX()}</span>
-      </div>
-    );
   }
 }
 
@@ -196,12 +214,12 @@ const g = {
   ],
   skills: [
     new Skill("Python", new Level(0), "devicon-python-plain"),
-    new Skill("C", new Level(0), "devicon-c-plain"),
-    new Skill("Rust", new Level(0), "devicon-rust-plain")
+    new Skill("C", new Level(Level.Skilled), "devicon-c-plain"),
+    new Skill("Rust", new Level(Level.Fluent), "devicon-rust-plain")
   ],
   languages: [
-    new Skill("Portuguese Brazilian", new Level(Level.Native)),
-    new Skill("English", new Level(Level.Intermediate))
+    new Skill("Portuguese Brazilian", new Level(Level.Native, true)),
+    new Skill("English", new Level(Level.Intermediate, true))
   ],
   projects: [
     new Project("project-a",  "https://www.github.com/user/project-a/branch/main/test.js",  "what this project is about? A longer description to fill for testing porpuse"),
@@ -224,12 +242,12 @@ function CurriculumVitae() {
       <hr/>
       <div>
 	<h3>Languages</h3>
-	{g.languages.map(e => e.intoJSX())}
+	{g.languages.map(e => <SimpleSkill skill={e}/>)}
       </div>
       <hr/>
       <div>
 	<h3>Skills</h3>
-	{g.skills.map(e => e.intoJSX())}
+	{g.skills.map(e => <ProgressSkill skill={e}/>)}
       </div>
       <hr/>
       <div>
