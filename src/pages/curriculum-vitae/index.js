@@ -119,15 +119,6 @@ function SimpleSkill({skill}) {
   );
 }
 
-function ProgressBar({value}) {
-  const width = value.toString() + "%";
-  return (
-    <div className="progress-bar">
-      <div className="progress-bar-inner" style={{width}}></div>
-    </div>
-  );
-}
-
 function ProgressSkill({skill}) {
   const display = "flex";
   const alignItems = "center";
@@ -137,7 +128,6 @@ function ProgressSkill({skill}) {
 	? <i className={skill.fontIcon + " icon"}></i>
 	: <></>}
       <span style={{width: "5px"}}></span>
-      <ProgressBar value={skill.level.percentage()}/>
     </div>
   );
 }
