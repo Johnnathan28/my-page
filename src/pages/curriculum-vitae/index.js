@@ -48,19 +48,15 @@ class Experience {
     return (
       <div key={key} className="Experience">
 	<span className="bold-text">{this.name}<br/></span>
-	{this.desc !== "" 
-	  ? <span className="gray-text">{this.desc}<br/></span>
-	  : <></>}
-	{stringDateFrom !== ""
-	  ? <span className="gray-text">From {stringDateFrom}</span>
-	  : <></>}
+	{this.desc !== "" &&
+	  <span className="gray-text">{this.desc}<br/></span>}
+	{stringDateFrom !== "" &&
+	  <span className="gray-text">From {stringDateFrom}</span>}
 	<span> </span>
-	{stringDateTo !== ""
-	  ? <span className="gray-text"> to {stringDateTo}</span>
-	  : <></>}
-	{this.tags.length > 0
-	  ? <div style={{marginTop: "5px"}}>{this.tags.map((t, i) => t.intoJSX(i))}</div>
-	  : <></>}
+	{stringDateTo !== "" &&
+	  <span className="gray-text"> to {stringDateTo}</span>}
+	{this.tags.length > 0 &&
+	  <div style={{marginTop: "5px"}}>{this.tags.map((t, i) => t.intoJSX(i))}</div>}
       </div>
     );
   }
@@ -124,9 +120,7 @@ function ProgressSkill({skill}) {
   const alignItems = "center";
   return (
     <div style={{display, alignItems}}>
-      {skill.fontIcon !== ""
-	? <i className={skill.fontIcon + " icon"}></i>
-	: <></>}
+      {skill.fontIcon && <i className={skill.fontIcon + " icon"}></i>}
       <span style={{width: "5px"}}></span>
     </div>
   );
