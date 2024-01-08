@@ -132,6 +132,15 @@ function ProgressSkill({skill}) {
     </div>
   );
 }
+
+function Skills({resume}) {
+  return (
+    <div>
+      <h3>Skills</h3>
+      {resume.skills.map((e, i) => <ProgressSkill key={i} skill={e}/>)}
+    </div>
+  );
+}
  
 class Skill {
   constructor(name, level=0, fontIcon="", showName=false) {
@@ -248,10 +257,7 @@ function CurriculumVitae() {
 	{g.languages.map((e, i) => <SimpleSkill key={i} skill={e}/>)}
       </div>
       <hr/>
-      <div>
-	<h3>Skills</h3>
-	{g.skills.map((e, i) => <ProgressSkill key={i} skill={e}/>)}
-      </div>
+      <Skills resume={g}/>
       <hr/>
       <div>
 	<h3>Projects</h3>
