@@ -6,6 +6,8 @@
   --perfil-img-margin: calc(var(--perfil-img-size) * 0.05);
 }
 
+/* XXX: For some options we should add !important otherwise it would
+ * not overwrite, I don't know why this occur. */
 @media (max-width: 425px) {
   .Header {
     text-align: center;
@@ -14,9 +16,11 @@
   }
 
   .Header .info .contact {
-    /* XXX: Need to use important bacause the value do not
-     * overwrite, I do not know why? */
     align-items: center !important;
+  }
+
+  .Projects .grid {
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -134,7 +138,7 @@ h3 {
 }
 
 .Project a {
-  width: 100%;
+  max-width: 264px;
   display: block;
   overflow: hidden;
   text-wrap: nowrap;
