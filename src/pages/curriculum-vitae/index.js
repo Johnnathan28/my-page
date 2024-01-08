@@ -177,15 +177,15 @@ function Header({resume}) {
       <div className="Header-img-box">
 	<img className="Header-img" src={perfilImage} alt="me"/>
       </div>
-      <div className="Header-info">
-	<h1>{resume.name}</h1>
-	<p>{resume.occupation}</p>
-      </div>
-      <span style={{flex: 1}}></span>
-      <div className="Header-contact">
-	<span style={{flex: 1}}></span>
-	<p>{resume.contact.phone}</p>
-	<p>{resume.contact.email}</p>
+      <div className="info">
+	<div className="basic">
+	  <h1>{resume.name}</h1>
+	  <p>{resume.occupation}</p>
+	</div>
+	<div className="contact">
+	  <p>{resume.contact.phone}</p>
+	  <p>{resume.contact.email}</p>
+	</div>
       </div>
     </div>
   );
