@@ -30,6 +30,11 @@ h3 {
   color: var(--gray0);
 }
 
+.Curriculum-vitae {
+  margin: auto;
+  max-width: 580px;
+}
+
 .Header {
   display: flex;
 }
