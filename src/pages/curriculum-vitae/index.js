@@ -162,9 +162,9 @@ class Project {
 
   intoJSX(key=null) {
     return (
-      <div key={key}>
+      <div className="Project" key={key}>
 	<label className="bold-text">{this.name}</label><br/>
-	<a className="link" href={this.link}>{this.link}</a><br/>
+	<a className="link" href={this.link}>{this.link}</a>
 	<p>{this.desc}</p>
       </div>
     );

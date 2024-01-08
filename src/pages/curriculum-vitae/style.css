@@ -105,6 +105,14 @@ h3 {
   grid-template-columns: 1fr 1fr;
 }
 
+.Project a {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
 .Projects {
   margin: 10px 0;
   display: grid;

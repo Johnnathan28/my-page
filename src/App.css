@@ -1,8 +1,12 @@
+#root {
+  width: 100%;
+}
+
 .page {
-  display: flex;
-  justify-content: center;
+  margin: auto;
+  max-width: 580px;
 }
 
 .page .container {
-  max-width: 680px;
+  width: 100%;
 }
