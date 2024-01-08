@@ -6,6 +6,20 @@
   --perfil-img-margin: calc(var(--perfil-img-size) * 0.05);
 }
 
+@media (max-width: 425px) {
+  .Header {
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .Header .info .contact {
+    /* XXX: Need to use important bacause the value do not
+     * overwrite, I do not know why? */
+    align-items: center !important;
+  }
+}
+
 h1, h2, h3, h4, p {
   margin: 0px;
 }
@@ -67,6 +81,7 @@ h3 {
 }
 
 .Header .info .contact {
+  color: var(--gray0);
   display: flex;
   align-items: end;
   justify-content: end;
