@@ -75,6 +75,10 @@ h3 {
   margin: 0 10px 0 0;
 }
 
+.ProgressSkill {
+  padding: 8px;
+}
+
 .ProgressSkill div.icon-name {
   display: flex;
   align-items: center;
