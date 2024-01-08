@@ -15,6 +15,10 @@
     flex-direction: column;
   }
 
+  .Header .info .basic {
+    margin-bottom: 12px;
+  }
+
   .Header .info .contact {
     align-items: center !important;
   }
