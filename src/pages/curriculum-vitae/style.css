@@ -110,6 +110,12 @@ h3 {
   grid-template-columns: 1fr 1fr;
 }
 
+.Project {
+  border: 1px solid var(--gray1);
+  border-radius: 10px;
+  padding: var(--projectrs-gaps);
+}
+
 .Project a {
   width: 100%;
   display: block;
@@ -118,17 +124,11 @@ h3 {
   text-overflow: ellipsis;
 }
 
-.Projects {
+.Projects .grid {
   margin: 10px 0;
   display: grid;
   grid-gap: var(--projectrs-gaps);
   grid-template-columns:
     calc(50% - var(--projectrs-gaps) / 2)
     calc(50% - var(--projectrs-gaps) / 2);
-}
-
-.Projects > div {
-  border: 1px solid var(--gray1);
-  border-radius: 10px;
-  padding: var(--projectrs-gaps);
 }

@@ -203,7 +203,10 @@ function Experiences({name, experiences}) {
 function Projects({src}) {
   return (
     <div className="Projects">
-      {src.map((e, i) => e.intoJSX(i))}
+      <h3>Projects</h3>
+      <div className="grid">
+	{src.map((e, i) => e.intoJSX(i))}
+      </div>
     </div>
   );
 }
@@ -264,10 +267,7 @@ function CurriculumVitae() {
       <hr/>
       <Skills resume={g}/>
       <hr/>
-      <div>
-	<h3>Projects</h3>
-	<Projects src={g.projects}/>
-      </div>
+      <Projects src={g.projects}/>
     </div>
   );
 }
