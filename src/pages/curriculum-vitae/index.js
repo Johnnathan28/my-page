@@ -135,9 +135,11 @@ function ProgressSkill({skill}) {
 
 function Skills({resume}) {
   return (
-    <div>
+    <div className="Skills">
       <h3>Skills</h3>
-      {resume.skills.map((e, i) => <ProgressSkill key={i} skill={e}/>)}
+      <div className="grid">
+	{resume.skills.map((e, i) => <ProgressSkill key={i} skill={e}/>)}
+      </div>
     </div>
   );
 }

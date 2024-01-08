@@ -84,6 +84,11 @@ h3 {
   margin-right: 4px;
 }
 
+.Skills .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .Projects {
   margin: 10px 0;
   display: grid;
