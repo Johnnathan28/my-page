@@ -127,6 +127,7 @@ function ProgressSkill({skill}) {
 	<span>{skill.name}</span>
       </div>
       <div>
+	<span>Level: {skill.level.toString()}</span><br/>
 	<span>Used in projects: {includedSkill}&#47;{totalProjects}</span>
       </div>
     </div>
