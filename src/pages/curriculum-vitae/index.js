@@ -229,7 +229,9 @@ const g = {
   skills: [
     new Skill("Python", new Level(0), "devicon-python-plain"),
     new Skill("C", new Level(Level.Skilled), "devicon-c-plain"),
-    new Skill("Rust", new Level(Level.Fluent), "devicon-rust-plain")
+    new Skill("Rust", new Level(Level.Fluent), "devicon-rust-plain"),
+    new Skill("JavaScript", new Level(0), "devicon-javascript-plain"),
+    new Skill("Go", new Level(0), "devicon-go-plain"),
   ],
   languages: [
     new Skill("Portuguese Brazilian", new Level(Level.Native, true)),
