@@ -55,6 +55,10 @@ h3 {
   width: 100%;
 }
 
+.Header .info .basic {
+  padding: 12px 0 0 12px;
+}
+
 .Header .info .contact {
   display: flex;
   align-items: end;
