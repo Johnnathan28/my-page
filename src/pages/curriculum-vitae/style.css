@@ -75,6 +75,15 @@ h3 {
   margin: 0 10px 0 0;
 }
 
+.ProgressSkill div.icon-name {
+  display: flex;
+  align-items: center;
+}
+
+.ProgressSkill div.icon-name * {
+  margin-right: 4px;
+}
+
 .Projects {
   margin: 10px 0;
   display: grid;

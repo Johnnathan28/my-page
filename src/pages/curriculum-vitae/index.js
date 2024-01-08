@@ -116,17 +116,16 @@ function SimpleSkill({skill}) {
 }
 
 function ProgressSkill({skill}) {
-  // TODO: Proper css.
-  const margin = "8px";
-
   // TODO: Get the actual values.
   const includedSkill = 0;
   const totalProjects = 3;
 
   return (
-    <div style={{margin}}>
-      {skill.fontIcon && <i className={skill.fontIcon + " icon"}></i>}
-      <span>{skill.name}</span>
+    <div className="ProgressSkill">
+      <div className="icon-name">
+	{skill.fontIcon && <i className={skill.fontIcon + " icon"}></i>}
+	<span>{skill.name}</span>
+      </div>
       <div>
 	<span>Used in projects: {includedSkill}&#47;{totalProjects}</span>
       </div>
