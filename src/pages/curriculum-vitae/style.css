@@ -32,7 +32,8 @@ h3 {
 
 .Curriculum-vitae {
   margin: auto;
-  max-width: 580px;
+  padding: 12px;
+  max-width: 592px;
 }
 
 .Header {
