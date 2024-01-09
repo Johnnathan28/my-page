@@ -59,14 +59,6 @@ function Skills({resume}) {
   );
 }
  
-class Skill {
-  constructor(name, level=0, fontIcon="", showName=false) {
-    this.name = name;
-    this.level = level;
-    this.fontIcon = fontIcon;
-  }
-}
-
 function Project({key, project}) {
     return (
       <div className="Project" key={key}>
