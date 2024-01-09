@@ -34,27 +34,27 @@
   "skills": [
     {
       "name": "Python",
-      "level": 0,
+      "level": "beginner",
       "fontIcon": "devicon-python-plain"
     },
     {
       "name": "C",
-      "level": 0,
+      "level": "fluent",
       "fontIcon": "devicon-c-plain"
     },
     {
       "name": "Rust",
-      "level": 0,
+      "level": "intermediate",
       "fontIcon": "devicon-rust-plain"
     },
     {
       "name": "JavaScript",
-      "level": 0,
+      "level": "fluent",
       "fontIcon": "devicon-javascript-plain"
     },
     {
       "name": "Go",
-      "level": 0,
+      "level": "beginner",
       "fontIcon": "devicon-go-plain"
     }
   ],

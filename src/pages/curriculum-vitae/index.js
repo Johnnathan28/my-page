@@ -63,55 +63,13 @@ class Experience {
   }
 }
 
-class Level {
-  static Begginer     = 0;
-  static Intermediate = 500;
-  static Skilled      = 1000;
-  static Fluent       = 5000;
-  /* Specific for native language, this does not means
-   * you are good at it, it just means you do it since
-   * you was born. */
-  static Native       = 5000;
-
-  constructor(level, speakLanguage=false) {
-    this.level = level;
-    this.speakLanguage = speakLanguage;
-  }
-
-  toString() {
-    if (this.level >= Level.Fluent) {
-      if (this.speakLanguage) {
-	return "Native";
-      } else {
-	return "Fluent";
-      }
-    } else if (this.level >= Level.Skilled) {
-      return "Skilled";
-    } else if (this.level >= Level.Intermediate) {
-      return "Intermediate";
-    } else {
-      return "Begginer";
-    }
-  }
-
-  percentage() {
-    return Math.floor(this.level / Level.Fluent * 100);
-  }
-
-  intoJSX(key=null) {
-    return (
-      <span key={key}>{this.toString()}</span>
-    );
-  }
-}
-
 function SimpleSkill({skill}) {
   return (
     <div>
       {skill.fontIcon !== ""
 	? <i className={skill.fontIcon + " icon"}></i>
 	: <></>}
-      <span>{skill.name} - {skill.level.intoJSX()}</span>
+      <span>{skill.name} - {skill.level}</span>
     </div>
   );
 }
