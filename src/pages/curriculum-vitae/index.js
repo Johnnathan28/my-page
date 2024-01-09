@@ -238,7 +238,7 @@ const g = {
     new Skill("Go", new Level(0), "devicon-go-plain"),
   ],
   languages: [
-    new Skill("Portuguese Brazilian", new Level(Level.Native, true)),
+    new Skill("Brazilian Portuguese", new Level(Level.Native, true)),
     new Skill("English", new Level(Level.Intermediate, true))
   ],
   projects: [
@@ -267,7 +267,6 @@ function CurriculumVitae() {
       <Experiences name="Education" experiences={g.education}/>
       <hr/>
       <Experiences name="Past Jobs" experiences={g.pastJobs}/>
-      <hr/>
       <hr/>
       <Skills resume={g}/>
       <hr/>
