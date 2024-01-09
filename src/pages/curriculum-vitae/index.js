@@ -2,20 +2,11 @@ import "./style.css";
 import cv from "../../assets/cv";
 import perfilImage from "../../assets/me.jpg";
 
-function getStringDate(date) {
-  date = new Date(date);
-  let d = date.getDay();
-  let m = date.getMonth() + 1;
-  let y = date.getFullYear();
-
-  if (Number.isNaN(d) || Number.isNaN(m) || Number.isNaN(y)) {
-    return "";
-  }
-
-  d = "0".repeat((Math.floor(d/10) - 1) * -1) + d.toString();
-  m = "0".repeat((Math.floor(m/10) - 1) * -1) + m.toString();
-
-  return `${d}/${m}/${y}`;
+function getStringDate(datestring) {
+  let date = new Date(datestring);
+  return date.toLocaleDateString('en-us', {
+    day: "numeric", year: "numeric", month: "short"
+  });
 }
 
 function Header({resume}) {
