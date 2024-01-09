@@ -15,8 +15,8 @@ function getStringDate(datestring) {
 function Header({resume}) {
   return (
     <div className="Header">
-      <div className="Header-img-box">
-	<img className="Header-img" src={perfilImage} alt="me"/>
+      <div className="img-box">
+	<img className="img-src" src={perfilImage} alt="me"/>
       </div>
       <div className="info">
 	<div className="basic">
