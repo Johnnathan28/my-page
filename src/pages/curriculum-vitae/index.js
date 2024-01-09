@@ -18,57 +18,6 @@ function getStringDate(date) {
   return `${d}/${m}/${y}`;
 }
 
-function SimpleSkill({skill}) {
-  return (
-    <div>
-      {skill.fontIcon !== ""
-	? <i className={skill.fontIcon + " icon"}></i>
-	: <></>}
-      <span>{skill.name} - {skill.level}</span>
-    </div>
-  );
-}
-
-function ProgressSkill({skill}) {
-  // TODO: Get the actual values.
-  const includedSkill = 0;
-  const totalProjects = 3;
-
-  return (
-    <div className="ProgressSkill">
-      <div className="icon-name">
-	{skill.fontIcon && <i className={skill.fontIcon + " icon"}></i>}
-	<span>{skill.name}</span>
-      </div>
-      <div>
-	<span>Level: {skill.level.toString()}</span><br/>
-	<span>Used in projects: {includedSkill}&#47;{totalProjects}</span>
-      </div>
-    </div>
-  );
-}
-
-function Skills({resume}) {
-  return (
-    <div className="Skills">
-      <h3>Skills</h3>
-      <div className="grid">
-	{resume.skills.map((e, i) => <ProgressSkill key={i} skill={e}/>)}
-      </div>
-    </div>
-  );
-}
- 
-function Project({key, project}) {
-    return (
-      <div className="Project" key={key}>
-	<label className="bold-text">{project.name}</label><br/>
-	<a className="link" href={project.link}>{project.link}</a>
-	<p>{project.about}</p>
-      </div>
-    );
-}
-
 function Header({resume}) {
   return (
     <div className="Header">
@@ -118,6 +67,57 @@ function Experiences({name, experiences}) {
       {experiences.map((e, i) => <Experience key={i} xp={e}/>)}
     </div>
   );
+}
+
+function SimpleSkill({skill}) {
+  return (
+    <div>
+      {skill.fontIcon !== ""
+	? <i className={skill.fontIcon + " icon"}></i>
+	: <></>}
+      <span>{skill.name} - {skill.level}</span>
+    </div>
+  );
+}
+
+function ProgressSkill({skill}) {
+  // TODO: Get the actual values.
+  const includedSkill = 0;
+  const totalProjects = 3;
+
+  return (
+    <div className="ProgressSkill">
+      <div className="icon-name">
+	{skill.fontIcon && <i className={skill.fontIcon + " icon"}></i>}
+	<span>{skill.name}</span>
+      </div>
+      <div>
+	<span>Level: {skill.level.toString()}</span><br/>
+	<span>Used in projects: {includedSkill}&#47;{totalProjects}</span>
+      </div>
+    </div>
+  );
+}
+
+function Skills({resume}) {
+  return (
+    <div className="Skills">
+      <h3>Skills</h3>
+      <div className="grid">
+	{resume.skills.map((e, i) => <ProgressSkill key={i} skill={e}/>)}
+      </div>
+    </div>
+  );
+}
+ 
+function Project({key, project}) {
+    return (
+      <div className="Project" key={key}>
+	<label className="bold-text">{project.name}</label><br/>
+	<a className="link" href={project.link}>{project.link}</a>
+	<p>{project.about}</p>
+      </div>
+    );
 }
 
 function Projects({src}) {
