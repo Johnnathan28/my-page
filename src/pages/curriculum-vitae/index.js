@@ -29,6 +29,15 @@ function Header({resume}) {
   );
 }
 
+function Tags({tags}) {
+  return (
+    <div className="Tags">
+      {tags.length > 0 &&
+	  tags.map((t, i) => <span key={i} className="Tag">{t}</span>)}
+    </div>
+  );
+}
+
 function Experience({xp}) {
   let stringDateFrom = getStringDate(xp.from);
   let stringDateTo = getStringDate(xp.to);
@@ -43,10 +52,7 @@ function Experience({xp}) {
       <span> </span>
       {stringDateTo !== "" &&
 	<span className="gray-text"> to {stringDateTo}</span>}
-      {xp.tags.length > 0 &&
-	<div style={{marginTop: "5px"}}>
-	  {xp.tags.map((t, i) => <span key={i} className="Tag">{t}</span>)}
-	</div>}
+      <Tags tags={xp.tags}/>
     </div>
   );
 }
@@ -107,6 +113,7 @@ function Project({project}) {
 	<label className="bold-text">{project.name}</label><br/>
 	<a className="link" href={project.link}>{project.link}</a>
 	<p>{project.about}</p>
+	<Tags tags={project.tags}/>
       </div>
     );
 }

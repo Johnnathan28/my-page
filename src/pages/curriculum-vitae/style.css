@@ -133,6 +133,11 @@ h3 {
   padding: 0px 8px;
 }
 
+.Tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .Skill {
   padding: 2px;
   display: flex;
