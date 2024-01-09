@@ -2,16 +2,6 @@ import "./style.css";
 import cv from "../../assets/cv";
 import perfilImage from "../../assets/me.jpg";
 
-class Tag {
-  constructor(name) {
-    this.name = name;
-  }
-
-  intoJSX(key=null) {
-    return <span key={key} className="Tag">{this.name}</span>;
-  }
-}
-
 function getStringDate(date) {
   date = new Date(date);
   let d = date.getDay();
@@ -130,7 +120,9 @@ function Experience({key, xp}) {
       {stringDateTo !== "" &&
 	<span className="gray-text"> to {stringDateTo}</span>}
       {xp.tags.length > 0 &&
-	<div style={{marginTop: "5px"}}>{xp.tags.map((t, i) => t.intoJSX(i))}</div>}
+	<div style={{marginTop: "5px"}}>
+	  {xp.tags.map((t, i) => <span key={i} className="tag">{t}</span>)}
+	</div>}
     </div>
   );
 }
