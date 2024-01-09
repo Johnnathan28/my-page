@@ -77,10 +77,17 @@ function SimpleSkill({skill}) {
   );
 }
 
-function ProgressSkill({skill}) {
-  // TODO: Get the actual values.
-  const includedSkill = 0;
-  const totalProjects = 3;
+function ProgressSkill({skill, projects}) {
+  let includedSkill = 0;
+  let totalProjects = projects.length;
+  let nameNormalized = skill.name.toUpperCase();
+
+  for (let use of projects) {
+    let tags = use.tags.map(s => s.toUpperCase());
+    if (tags.includes(nameNormalized)) {
+      includedSkill++;
+    }
+  }
 
   return (
     <div className="ProgressSkill">
@@ -101,7 +108,8 @@ function Skills({resume}) {
     <div className="Skills">
       <h3>Skills</h3>
       <div className="grid">
-	{resume.skills.map((e, i) => <ProgressSkill key={i} skill={e}/>)}
+	{resume.skills.map((e, i) =>
+	  <ProgressSkill key={i} skill={e} projects={resume.projects}/>)}
       </div>
     </div>
   );

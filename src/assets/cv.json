@@ -74,14 +74,13 @@
     {
       "name": "project-a",
       "link": "https://www.github.com/user/project-a/branch/main/test.js",
-      "tags": [],
+      "tags": ["rust"],
       "about": "what this project is about? A longer description to fill for testing porpuse"
     },
     {
       "name": "project-b",
       "link": "https://www.github.com/user/project-b",
-      "tags": ["react", "front-end", "API", "mysql", "database",
-	       "rust", "golang", "docker", "javascript", "node.js", "vue.js"],
+      "tags": ["react", "front-end", "API", "mysql", "database"],
       "about": "what this project is about?"
     },
     {
