@@ -60,8 +60,9 @@ function Experience({xp}) {
 }
 
 function Experiences({name, experiences}) {
+  let className = name.replaceAll(" ", "_");
   return (
-    <div>
+    <div className={className}>
       <h3>{name}</h3>
       {experiences.map((e, i) => <Experience key={i} xp={e}/>)}
     </div>
