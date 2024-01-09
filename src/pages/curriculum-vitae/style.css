@@ -23,6 +23,12 @@
     align-items: center !important;
   }
 
+  .Header .info .contact p {
+    max-width: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .About {
     flex-direction: column;
   }
