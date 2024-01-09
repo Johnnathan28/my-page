@@ -105,7 +105,7 @@ function Experience({key, xp}) {
 	<span className="gray-text"> to {stringDateTo}</span>}
       {xp.tags.length > 0 &&
 	<div style={{marginTop: "5px"}}>
-	  {xp.tags.map((t, i) => <span key={i} className="tag">{t}</span>)}
+	  {xp.tags.map((t, i) => <span key={i} className="Tag">{t}</span>)}
 	</div>}
     </div>
   );
