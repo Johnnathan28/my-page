@@ -2,8 +2,7 @@
   "name": "Lorem ipsum",
   "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas lobortis ipsum et ullamcorper. Nam eget magna ut nunc finibus iaculis. Quisque lacinia, mauris quis tempus lobortis, tellus odio sodales leo, in pharetra dolor magna vitae ante. Sed iaculis tellus venenatis viverra lobortis. Curabitur eget nibh quam.",
   "contact": {
-    "email": "foo.bar.baz@digital.com",
-    "phone": "+55 (18) 99999-9999"
+    "email": "foo.bar.baz@digital.com"
   },
   "occupation": "Hobbyist programmer",
   "education": [

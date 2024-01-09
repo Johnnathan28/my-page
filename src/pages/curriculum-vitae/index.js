@@ -21,7 +21,6 @@ function Header({resume}) {
 	  <p>{resume.occupation}</p>
 	</div>
 	<div className="contact">
-	  <p>{resume.contact.phone}</p>
 	  <p>{resume.contact.email}</p>
 	</div>
       </div>
