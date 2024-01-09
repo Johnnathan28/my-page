@@ -12,55 +12,20 @@ class Tag {
   }
 }
 
-class Experience {
-  constructor(name, from="0000-00-00", to="0000-00-00", desc="") {
-    this.name = name;
-    this.desc = desc;
-    this.from = new Date(from);
-    this.to = new Date(to);
-    this.tags = [];
+function getStringDate(date) {
+  date = new Date(date);
+  let d = date.getDay();
+  let m = date.getMonth() + 1;
+  let y = date.getFullYear();
+
+  if (Number.isNaN(d) || Number.isNaN(m) || Number.isNaN(y)) {
+    return "";
   }
 
-  addTag(...args) {
-    let tag = new Tag(...args);
-    this.tags.push(tag);
-    return this;
-  }
+  d = "0".repeat((Math.floor(d/10) - 1) * -1) + d.toString();
+  m = "0".repeat((Math.floor(m/10) - 1) * -1) + m.toString();
 
-  getStringDate(date) {
-    let d = date.getDay();
-    let m = date.getMonth() + 1;
-    let y = date.getFullYear();
-
-    if (Number.isNaN(d) || Number.isNaN(m) || Number.isNaN(y)) {
-      return "";
-    }
-
-    d = "0".repeat((Math.floor(d/10) - 1) * -1) + d.toString();
-    m = "0".repeat((Math.floor(m/10) - 1) * -1) + m.toString();
-
-    return `${d}/${m}/${y}`;
-  }
-
-  intoJSX(key=null) {
-    let stringDateFrom = this.getStringDate(this.from);
-    let stringDateTo = this.getStringDate(this.to);
-
-    return (
-      <div key={key} className="Experience">
-	<span className="bold-text">{this.name}<br/></span>
-	{this.desc !== "" &&
-	  <span className="gray-text">{this.desc}<br/></span>}
-	{stringDateFrom !== "" &&
-	  <span className="gray-text">From {stringDateFrom}</span>}
-	<span> </span>
-	{stringDateTo !== "" &&
-	  <span className="gray-text"> to {stringDateTo}</span>}
-	{this.tags.length > 0 &&
-	  <div style={{marginTop: "5px"}}>{this.tags.map((t, i) => t.intoJSX(i))}</div>}
-      </div>
-    );
-  }
+  return `${d}/${m}/${y}`;
 }
 
 function SimpleSkill({skill}) {
@@ -150,11 +115,31 @@ function Header({resume}) {
   );
 }
 
+function Experience({key, xp}) {
+  let stringDateFrom = getStringDate(xp.from);
+  let stringDateTo = getStringDate(xp.to);
+
+  return (
+    <div key={key} className="Experience">
+      <span className="bold-text">{xp.name}<br/></span>
+      {xp.description !== "" &&
+	<span className="gray-text">{xp.description}<br/></span>}
+      {stringDateFrom !== "" &&
+	<span className="gray-text">From {stringDateFrom}</span>}
+      <span> </span>
+      {stringDateTo !== "" &&
+	<span className="gray-text"> to {stringDateTo}</span>}
+      {xp.tags.length > 0 &&
+	<div style={{marginTop: "5px"}}>{xp.tags.map((t, i) => t.intoJSX(i))}</div>}
+    </div>
+  );
+}
+
 function Experiences({name, experiences}) {
   return (
     <div>
       <h3>{name}</h3>
-      {experiences.map((e, i) => e.intoJSX(i))}
+      {experiences.map((e, i) => <Experience key={i} xp={e}/>)}
     </div>
   );
 }
