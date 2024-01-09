@@ -38,12 +38,12 @@ function Header({resume}) {
   );
 }
 
-function Experience({key, xp}) {
+function Experience({xp}) {
   let stringDateFrom = getStringDate(xp.from);
   let stringDateTo = getStringDate(xp.to);
 
   return (
-    <div key={key} className="Experience">
+    <div className="Experience">
       <span className="bold-text">{xp.name}<br/></span>
       {xp.description !== "" &&
 	<span className="gray-text">{xp.description}<br/></span>}
@@ -110,9 +110,9 @@ function Skills({resume}) {
   );
 }
  
-function Project({key, project}) {
+function Project({project}) {
     return (
-      <div className="Project" key={key}>
+      <div className="Project">
 	<label className="bold-text">{project.name}</label><br/>
 	<a className="link" href={project.link}>{project.link}</a>
 	<p>{project.about}</p>
