@@ -253,17 +253,21 @@ function CurriculumVitae() {
     <div className="Curriculum-vitae">
       <Header resume={g}/>
       <hr/>
-      <h3>about</h3>
-      <p>{g.about}</p>
+      <div className="About">
+	<div>
+	  <h3>About</h3>
+	  <p>{g.about}</p>
+	</div>
+	<div>
+	  <h3>Languages</h3>
+	  {g.languages.map((e, i) => <SimpleSkill key={i} skill={e}/>)}
+	</div>
+      </div>
       <hr/>
       <Experiences name="Education" experiences={g.education}/>
       <hr/>
       <Experiences name="Past Jobs" experiences={g.pastJobs}/>
       <hr/>
-      <div>
-	<h3>Languages</h3>
-	{g.languages.map((e, i) => <SimpleSkill key={i} skill={e}/>)}
-      </div>
       <hr/>
       <Skills resume={g}/>
       <hr/>
