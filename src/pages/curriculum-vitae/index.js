@@ -3,6 +3,9 @@ import cv from "../../assets/cv";
 import perfilImage from "../../assets/me.jpg";
 
 function getStringDate(datestring) {
+  if (!datestring) {
+    return "";
+  }
   let date = new Date(datestring);
   return date.toLocaleDateString('en-us', {
     day: "numeric", year: "numeric", month: "short"
