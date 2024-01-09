@@ -9,8 +9,8 @@
     {
       "name": "E. E. Maria Magdalena de Oliveira",
       "description": "High school",
-      "from": "2016-02-02",
-      "to": "2023-12-15",
+      "from": "2016-02-02:00:00:00.000-03:00",
+      "to": "2023-12-16:00:00:00.000-03:00",
       "tags": []
     }
   ],
@@ -18,7 +18,7 @@
     {
       "name": "Avanzi Supermercados LTDA",
       "description": "Bagger",
-      "from": "2022-05-02",
+      "from": "2022-05-02:00:00:00.000-03:00",
       "to": "",
       "tags": ["clients"]
     }
