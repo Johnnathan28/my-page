@@ -1,0 +1,90 @@
+{
+  "name": "Lorem ipsum",
+  "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas lobortis ipsum et ullamcorper. Nam eget magna ut nunc finibus iaculis. Quisque lacinia, mauris quis tempus lobortis, tellus odio sodales leo, in pharetra dolor magna vitae ante. Sed iaculis tellus venenatis viverra lobortis. Curabitur eget nibh quam.",
+  "contact": {
+    "email": "foo.bar.baz@digital.com",
+    "phone": "+55 (18) 99999-9999"
+  },
+  "occupation": "Hobbyist programmer",
+  "education": [
+    {
+      "name": "Random school",
+      "description": "High school",
+      "from": "2014-02-02",
+      "to": "2023-12-13",
+      "tags": ["sciences", "math"]
+    },
+    {
+      "name": "Michail University",
+      "description": "Computer Science",
+      "from": "2024-03-04",
+      "to": "2028-11-29",
+      "tags": []
+    }
+  ],
+  "pastJobs": [
+    {
+      "name": "Lorem LTDA",
+      "description": "Software enginner",
+      "from": "2025-11-03",
+      "to": "2026-11-02",
+      "tags": ["python", "data-analysis"]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Python",
+      "level": 0,
+      "fontIcon": "devicon-python-plain"
+    },
+    {
+      "name": "C",
+      "level": 0,
+      "fontIcon": "devicon-c-plain"
+    },
+    {
+      "name": "Rust",
+      "level": 0,
+      "fontIcon": "devicon-rust-plain"
+    },
+    {
+      "name": "JavaScript",
+      "level": 0,
+      "fontIcon": "devicon-javascript-plain"
+    },
+    {
+      "name": "Go",
+      "level": 0,
+      "fontIcon": "devicon-go-plain"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Brazilian Portuguese",
+      "level": "native",
+      "speakLanguage": true
+    },
+    {
+      "name": "English",
+      "level": "native",
+      "speakLanguage": true
+    }
+  ],
+  "projects": [
+    {
+      "name": "project-a",
+      "link": "https://www.github.com/user/project-a/branch/main/test.js",
+      "about": "what this project is about? A longer description to fill for testing porpuse"
+    },
+    {
+      "name": "project-b",
+      "link": "https://www.github.com/user/project-b",
+      "about": "what this project is about?"
+    },
+    {
+      "name": "project-c",
+      "link": "https://www.github.com/user/project-c",
+      "about": "what this project is about?"
+    }
+  ]
+}

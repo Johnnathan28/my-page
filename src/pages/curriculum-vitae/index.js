@@ -1,4 +1,5 @@
 import "./style.css";
+import cv from "../../assets/cv";
 import perfilImage from "../../assets/me.jpg";
 
 class Tag {
@@ -211,66 +212,29 @@ function Projects({src}) {
   );
 }
 
-const g = {
-  name: "Foo Bar Baz",
-  about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas lobortis ipsum et ullamcorper. Nam eget magna ut nunc finibus iaculis. Quisque lacinia, mauris quis tempus lobortis, tellus odio sodales leo, in pharetra dolor magna vitae ante. Sed iaculis tellus venenatis viverra lobortis. Curabitur eget nibh quam.",
-  contact: {
-    email: "foo.bar.baz@digital.com",
-    phone: "+55 (18) 99999-9999",
-  },
-  occupation: "Hobbyist programmer",
-  education: [
-    new Experience("Random school", "2014-02-02", "2023-12-13", "High School")
-      .addTag("sciences")
-      .addTag("math"),
-    new Experience("Michail University", "2024-03-04", "2028-11-29", "Computer Science")
-  ],
-  pastJobs: [
-    new Experience("Good Enterprise", "2025-11-03", "2026-11-02")
-      .addTag("clients")
-      .addTag("emotional"),
-  ],
-  skills: [
-    new Skill("Python", new Level(0), "devicon-python-plain"),
-    new Skill("C", new Level(Level.Skilled), "devicon-c-plain"),
-    new Skill("Rust", new Level(Level.Fluent), "devicon-rust-plain"),
-    new Skill("JavaScript", new Level(0), "devicon-javascript-plain"),
-    new Skill("Go", new Level(0), "devicon-go-plain"),
-  ],
-  languages: [
-    new Skill("Brazilian Portuguese", new Level(Level.Native, true)),
-    new Skill("English", new Level(Level.Intermediate, true))
-  ],
-  projects: [
-    new Project("project-a",  "https://www.github.com/user/project-a/branch/main/test.js",  "what this project is about? A longer description to fill for testing porpuse"),
-    new Project("project-b",  "https://www.github.com/user/project-b",  "what this project is about?"),
-    new Project("project-c",  "https://www.github.com/user/project-c",  "what this project is about?")
-  ]
-};
-
 function CurriculumVitae() {
   return (
     <div className="Curriculum-vitae">
-      <Header resume={g}/>
+      <Header resume={cv}/>
       <hr/>
       <div className="About">
 	<div>
 	  <h3>About</h3>
-	  <p>{g.about}</p>
+	  <p>{cv.about}</p>
 	</div>
 	<div>
 	  <h3>Languages</h3>
-	  {g.languages.map((e, i) => <SimpleSkill key={i} skill={e}/>)}
+	  {cv.languages.map((e, i) => <SimpleSkill key={i} skill={e}/>)}
 	</div>
       </div>
       <hr/>
-      <Experiences name="Education" experiences={g.education}/>
+      <Experiences name="Education" experiences={cv.education}/>
       <hr/>
-      <Experiences name="Past Jobs" experiences={g.pastJobs}/>
+      <Experiences name="Past Jobs" experiences={cv.pastJobs}/>
       <hr/>
-      <Skills resume={g}/>
+      <Skills resume={cv}/>
       <hr/>
-      <Projects src={g.projects}/>
+      <Projects src={cv.projects}/>
     </div>
   );
 }
