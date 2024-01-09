@@ -1,60 +1,43 @@
 {
-  "name": "Lorem ipsum",
-  "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas lobortis ipsum et ullamcorper. Nam eget magna ut nunc finibus iaculis. Quisque lacinia, mauris quis tempus lobortis, tellus odio sodales leo, in pharetra dolor magna vitae ante. Sed iaculis tellus venenatis viverra lobortis. Curabitur eget nibh quam.",
+  "name": "Johnathan G. de Oliveira",
+  "about": "Hello! I was born in 2005, in 2018 I discovered programming and since 2020 I code for fun. I already used a lot of differents tools, and learned a lot about the world of creating code. I currently have no professional experience, and I'm excited to find my first job in the technology area.",
   "contact": {
-    "email": "foo.bar.baz@digital.com"
+    "email": "johnathan.goncalves.de.oliveira@gmail.com"
   },
   "occupation": "Hobbyist programmer",
   "education": [
     {
-      "name": "Random school",
+      "name": "E. E. Maria Magdalena de Oliveira",
       "description": "High school",
-      "from": "2014-02-02",
-      "to": "2023-12-13",
-      "tags": ["sciences", "math"]
-    },
-    {
-      "name": "Michail University",
-      "description": "Computer Science",
-      "from": "2024-03-04",
-      "to": "2028-11-29",
+      "from": "2016-02-02",
+      "to": "2023-12-15",
       "tags": []
     }
   ],
   "pastJobs": [
     {
-      "name": "Lorem LTDA",
-      "description": "Software enginner",
+      "name": "Avanzi Supermercados LTDA",
+      "description": "Bagger",
       "from": "2025-11-03",
       "to": "2026-11-02",
-      "tags": ["python", "data-analysis"]
+      "tags": ["clients"]
     }
   ],
   "technologies": [
     {
-      "name": "Python",
-      "level": "beginner",
-      "fontIcon": "devicon-python-plain"
-    },
-    {
-      "name": "C",
-      "level": "fluent",
-      "fontIcon": "devicon-c-plain"
-    },
-    {
-      "name": "Rust",
+      "name": "Javascript",
       "level": "intermediate",
-      "fontIcon": "devicon-rust-plain"
-    },
-    {
-      "name": "JavaScript",
-      "level": "fluent",
       "fontIcon": "devicon-javascript-plain"
     },
     {
-      "name": "Go",
-      "level": "beginner",
-      "fontIcon": "devicon-go-plain"
+      "name": "Css",
+      "level": "intermediate",
+      "fontIcon": "devicon-css3-plain"
+    },
+    {
+      "name": "React",
+      "level": "intermediate",
+      "fontIcon": "devicon-react-plain"
     }
   ],
   "languages": [
@@ -71,22 +54,10 @@
   ],
   "projects": [
     {
-      "name": "project-a",
-      "link": "https://www.github.com/user/project-a/branch/main/test.js",
-      "tags": ["rust"],
-      "about": "what this project is about? A longer description to fill for testing porpuse"
-    },
-    {
-      "name": "project-b",
-      "link": "https://www.github.com/user/project-b",
-      "tags": ["react", "front-end", "API", "mysql", "database"],
-      "about": "what this project is about?"
-    },
-    {
-      "name": "project-c",
-      "link": "https://www.github.com/user/project-c",
-      "tags": ["c", "back-end", "algorithm"],
-      "about": "what this project is about?"
+      "name": "My Page",
+      "link": "#",
+      "tags": ["react", "javascript", "css"],
+      "about": "My personal/professional page."
     }
   ]
 }
