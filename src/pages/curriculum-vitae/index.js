@@ -67,22 +67,14 @@ class Skill {
   }
 }
 
-class Project {
-  constructor(name, link, desc) {
-    this.name = name;
-    this.link = link;
-    this.desc = desc;
-  }
-
-  intoJSX(key=null) {
+function Project({key, project}) {
     return (
       <div className="Project" key={key}>
-	<label className="bold-text">{this.name}</label><br/>
-	<a className="link" href={this.link}>{this.link}</a>
-	<p>{this.desc}</p>
+	<label className="bold-text">{project.name}</label><br/>
+	<a className="link" href={project.link}>{project.link}</a>
+	<p>{project.about}</p>
       </div>
     );
-  }
 }
 
 function Header({resume}) {
@@ -141,7 +133,7 @@ function Projects({src}) {
     <div className="Projects">
       <h3>Projects</h3>
       <div className="grid">
-	{src.map((e, i) => e.intoJSX(i))}
+	{src.map((e, i) => <Project key={i} project={e}/>)}
       </div>
     </div>
   );
