@@ -66,7 +66,7 @@ function Experiences({name, experiences}) {
   );
 }
 
-function SimpleSkill({skill}) {
+function Skill({skill}) {
   return (
     <div>
       {skill.fontIcon !== ""
@@ -77,39 +77,39 @@ function SimpleSkill({skill}) {
   );
 }
 
-function ProgressSkill({skill, projects}) {
-  let includedSkill = 0;
-  let totalProjects = projects.length;
-  let nameNormalized = skill.name.toUpperCase();
+function Technology({technology, projects}) {
+  let useCount = 0;
+  let projectsCount = projects.length;
+  let nameNormalized = technology.name.toUpperCase();
 
-  for (let use of projects) {
-    let tags = use.tags.map(s => s.toUpperCase());
+  for (let project of projects) {
+    let tags = project.tags.map(s => s.toUpperCase());
     if (tags.includes(nameNormalized)) {
-      includedSkill++;
+      useCount++;
     }
   }
 
   return (
-    <div className="ProgressSkill">
+    <div className="Technology">
       <div className="icon-name">
-	{skill.fontIcon && <i className={skill.fontIcon + " icon"}></i>}
-	<span>{skill.name}</span>
+	{technology.fontIcon && <i className={technology.fontIcon + " icon"}></i>}
+	<span>{technology.name}</span>
       </div>
       <div>
-	<span>Level: {skill.level.toString()}</span><br/>
-	<span>Used in projects: {includedSkill}&#47;{totalProjects}</span>
+	<span>Level: {technology.level.toString()}</span><br/>
+	<span>Used in projects: {useCount}&#47;{projectsCount}</span>
       </div>
     </div>
   );
 }
 
-function Skills({resume}) {
+function Technologies({resume}) {
   return (
-    <div className="Skills">
-      <h3>Skills</h3>
+    <div className="Technologies">
+      <h3>Technologies</h3>
       <div className="grid">
-	{resume.skills.map((e, i) =>
-	  <ProgressSkill key={i} skill={e} projects={resume.projects}/>)}
+	{resume.technologies.map((e, i) =>
+	  <Technology key={i} technology={e} projects={resume.projects}/>)}
       </div>
     </div>
   );
@@ -149,7 +149,7 @@ function CurriculumVitae() {
 	</div>
 	<div>
 	  <h3>Languages</h3>
-	  {cv.languages.map((e, i) => <SimpleSkill key={i} skill={e}/>)}
+	  {cv.languages.map((e, i) => <Skill key={i} skill={e}/>)}
 	</div>
       </div>
       <hr/>
@@ -157,7 +157,7 @@ function CurriculumVitae() {
       <hr/>
       <Experiences name="Past Jobs" experiences={cv.pastJobs}/>
       <hr/>
-      <Skills resume={cv}/>
+      <Technologies resume={cv}/>
       <hr/>
       <Projects src={cv.projects}/>
     </div>
