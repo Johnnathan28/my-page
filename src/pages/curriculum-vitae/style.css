@@ -4,6 +4,7 @@
   --projectrs-gaps: 10px;
   --perfil-img-size: 150px;
   --perfil-img-margin: calc(var(--perfil-img-size) * 0.05);
+  --small-spacing: 12px;
 }
 
 /* XXX: For some options we should add !important otherwise it would
@@ -47,8 +48,9 @@ h1, h2, h3, h4, p {
   margin: 0px;
 }
 
-h3 {
-  margin: 0 0 10px 0;
+hr {
+  border: none;
+  height: var(--small-spacing);
 }
 
 .icon {
@@ -129,7 +131,7 @@ h3 {
 
 
 .Experience {
-  margin: 10px 0px 5px 0px;
+  margin: var(--small-spacing) 0px 6px 0px;
 }
 
 .Tag {
@@ -168,6 +170,7 @@ h3 {
 }
 
 .Technologies .grid {
+  margin: var(--small-spacing) 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -187,7 +190,7 @@ h3 {
 }
 
 .Projects .grid {
-  margin: 10px 0;
+  margin: var(--small-spacing) 0;
   display: grid;
   grid-gap: var(--projectrs-gaps);
   grid-template-columns:

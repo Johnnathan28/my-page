@@ -71,9 +71,8 @@ function Experiences({name, experiences}) {
 function Skill({skill}) {
   return (
     <div>
-      {skill.fontIcon !== ""
-	? <i className={skill.fontIcon + " icon"}></i>
-	: <></>}
+      {skill.fontIcon &&
+	<i className={skill.fontIcon + " icon"}></i>}
       <span>{skill.name} - {skill.level}</span>
     </div>
   );
