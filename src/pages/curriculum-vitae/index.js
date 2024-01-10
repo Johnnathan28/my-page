@@ -1,6 +1,12 @@
 import "./style.css";
-import cv from "../../assets/cv";
+import cvEN from "../../assets/cv-en";
+import cvPTBR from "../../assets/cv-ptbr";
 import perfilImage from "../../assets/me.jpg";
+
+const curriculum = {
+  "en": cvEN,
+  "ptbr": cvPTBR
+};
 
 function getStringDate(datestring) {
   if (!datestring) {
@@ -140,6 +146,9 @@ function Projects({src}) {
 }
 
 function CurriculumVitae() {
+  let language = "en";
+  let cv = curriculum[language];
+
   return (
     <div className="Curriculum-vitae">
       <Header resume={cv}/>

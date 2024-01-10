@@ -1,0 +1,63 @@
+{
+  "name": "Johnathan G. de Oliveira",
+  "about": "Oi! Eu nasci em 2005, em 2018 descobri a programação e desde 2020 eu escrevo códigos por diversão. Eu já usei diversas ferramentas, e aprendi muito sobre o mundo de cria código. Atualmente não tenho experiência profissional, e estou muito animado pra encontrar meu primeiro emprego na area de tecnologia.",
+  "contact": {
+    "email": "johnathan.goncalves.de.oliveira@gmail.com"
+  },
+  "occupation": "Programador amador",
+  "education": [
+    {
+      "name": "E. E. Maria Magdalena de Oliveira",
+      "description": "Ensino Médio",
+      "from": "2016-02-02:00:00:00.000-03:00",
+      "to": "2023-12-16:00:00:00.000-03:00",
+      "tags": []
+    }
+  ],
+  "pastJobs": [
+    {
+      "name": "Avanzi Supermercados LTDA",
+      "description": "Empacotador",
+      "from": "2022-05-02:00:00:00.000-03:00",
+      "to": "",
+      "tags": ["clientes"]
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Javascript",
+      "level": "intermediário",
+      "fontIcon": "devicon-javascript-plain"
+    },
+    {
+      "name": "Css",
+      "level": "intermediário",
+      "fontIcon": "devicon-css3-plain"
+    },
+    {
+      "name": "React",
+      "level": "intermediário",
+      "fontIcon": "devicon-react-plain"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Português Brasileiro",
+      "level": "native",
+      "speakLanguage": true
+    },
+    {
+      "name": "Inglês",
+      "level": "intermediário",
+      "speakLanguage": true
+    }
+  ],
+  "projects": [
+    {
+      "name": "Minha Página",
+      "link": "#",
+      "tags": ["react", "javascript", "css"],
+      "about": "Minha página pessoal/profissional."
+    }
+  ]
+}
