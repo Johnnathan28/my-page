@@ -146,8 +146,9 @@ function Projects({src}) {
 }
 
 function CurriculumVitae() {
-  let language = "en";
-  let cv = curriculum[language];
+  const urlParams = new URLSearchParams(window.location.search);
+  const lang = urlParams.get("lang");
+  const cv = curriculum[lang] || curriculum["en"];
 
   return (
     <div className="Curriculum-vitae">
