@@ -15,6 +15,10 @@ class Translator {
     return {err: ""};
   }
 
+  getLang() {
+    return this.currentLang;
+  }
+
   getPage(name) {
     if (this.pages[this.currentLang] === undefined) {
       return {err: `page (${name}) not include in language (${this.currentLang})`, t: () => ""};

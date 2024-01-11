@@ -41,7 +41,7 @@ function getStringDate(datestring) {
     return "";
   }
   let date = new Date(datestring);
-  return date.toLocaleDateString('en-us', {
+  return date.toLocaleDateString(T.getLang(), {
     day: "numeric", year: "numeric", month: "short"
   });
 }
