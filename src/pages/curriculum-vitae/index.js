@@ -2,11 +2,39 @@ import "./style.css";
 import cvEN from "../../assets/cv-en";
 import cvPTBR from "../../assets/cv-ptbr";
 import perfilImage from "../../assets/me.jpg";
+import T from "../../modules/translator";
 
+const pageName = "curriculum-vitae";
 const curriculum = {
-  "en": cvEN,
-  "ptbr": cvPTBR
+  "en-us": cvEN,
+  "pt-br": cvPTBR
 };
+
+T.addPage(pageName, "en-us", {
+  "about": "About",
+  "languages": "Languages",
+  "education": "Education",
+  "pastJobs": "Past jobs",
+  "technologies": "technologies",
+  "projects": "projects",
+  "level": "level",
+  "useInProjects": "Use in projects",
+  "from": "From",
+  "to": "to"
+});
+
+T.addPage(pageName, "pt-br", {
+  "about": "Sobre",
+  "languages": "Línguas",
+  "education": "Educação",
+  "pastJobs": "Trabalhos",
+  "technologies": "Tecnologias",
+  "projects": "Projetos",
+  "level": "Nível",
+  "useInProjects": "Uso em projetos",
+  "from": "Desde",
+  "to": "até"
+});
 
 function getStringDate(datestring) {
   if (!datestring) {
@@ -47,6 +75,11 @@ function Tags({tags}) {
 }
 
 function Experience({xp}) {
+  const {err, t} = T.getPage(pageName);
+  if (err) {
+    console.error(err);
+  }
+
   let stringDateFrom = getStringDate(xp.from);
   let stringDateTo = getStringDate(xp.to);
 
@@ -56,20 +89,21 @@ function Experience({xp}) {
       {xp.description !== "" &&
 	<span className="gray-text">{xp.description}<br/></span>}
       {stringDateFrom !== "" &&
-	<span className="gray-text">From {stringDateFrom}</span>}
+	<span className="gray-text">{t("from")} {stringDateFrom}</span>}
       <span> </span>
       {stringDateTo !== "" &&
-	<span className="gray-text"> to {stringDateTo}</span>}
+	<span className="gray-text"> {t("to")} {stringDateTo}</span>}
       <Tags tags={xp.tags}/>
     </div>
   );
 }
 
-function Experiences({name, experiences}) {
+function Experiences({name, title, experiences}) {
+  title = title || name;
   let className = name.replaceAll(" ", "_");
   return (
     <div className={className}>
-      <h3>{name}</h3>
+      <h3>{title}</h3>
       {experiences.map((e, i) => <Experience key={i} xp={e}/>)}
     </div>
   );
@@ -86,6 +120,11 @@ function Skill({skill}) {
 }
 
 function Technology({technology, projects}) {
+  const {err, t} = T.getPage(pageName);
+  if (err) {
+    console.error(err);
+  }
+
   let useCount = 0;
   let projectsCount = projects.length;
   let nameNormalized = technology.name.toUpperCase();
@@ -104,17 +143,21 @@ function Technology({technology, projects}) {
 	<span>{technology.name}</span>
       </div>
       <div>
-	<span>Level: {technology.level.toString()}</span><br/>
-	<span>Used in projects: {useCount}&#47;{projectsCount}</span>
+	<span>{t("level")}: {technology.level.toString()}</span><br/>
+	<span>{t("useInProjects")}: {useCount}&#47;{projectsCount}</span>
       </div>
     </div>
   );
 }
 
 function Technologies({resume}) {
+  const {err, t} = T.getPage(pageName, "");
+  if (err) {
+    console.error(err);
+  }
   return (
     <div className="Technologies">
-      <h3>Technologies</h3>
+      <h3>{t("technologies")}</h3>
       <div className="grid">
 	{resume.technologies.map((e, i) =>
 	  <Technology key={i} technology={e} projects={resume.projects}/>)}
@@ -135,9 +178,13 @@ function Project({project}) {
 }
 
 function Projects({src}) {
+  const {err, t} = T.getPage(pageName);
+  if (err) {
+    console.error(err);
+  }
   return (
     <div className="Projects">
-      <h3>Projects</h3>
+      <h3>{t("projects")}</h3>
       <div className="grid">
 	{src.map((e, i) => <Project key={i} project={e}/>)}
       </div>
@@ -147,8 +194,24 @@ function Projects({src}) {
 
 function CurriculumVitae() {
   const urlParams = new URLSearchParams(window.location.search);
-  const lang = urlParams.get("lang");
-  const cv = curriculum[lang] || curriculum["en"];
+
+  let lang = urlParams.get("lang");
+  let langStatus = T.setLang(lang);
+  if (langStatus.err) {
+    console.error(langStatus.err);
+    lang = "en-us";
+    langStatus = T.setLang(lang);
+    if (langStatus.err) {
+      console.error(langStatus.err);
+    }
+  }
+
+  const {err, t} = T.getPage(pageName);
+  if (err) {
+    console.error(err);
+  }
+
+  const cv = curriculum[lang];
 
   return (
     <div className="Curriculum-vitae">
@@ -156,18 +219,18 @@ function CurriculumVitae() {
       <hr/>
       <div className="About">
 	<div>
-	  <h3>About</h3>
+	  <h3>{t("about")}</h3>
 	  <p>{cv.about}</p>
 	</div>
 	<div>
-	  <h3>Languages</h3>
+	  <h3>{t("languages")}</h3>
 	  {cv.languages.map((e, i) => <Skill key={i} skill={e}/>)}
 	</div>
       </div>
       <hr/>
-      <Experiences name="Education" experiences={cv.education}/>
+      <Experiences name="Education" title={t("education")} experiences={cv.education}/>
       <hr/>
-      <Experiences name="Past Jobs" experiences={cv.pastJobs}/>
+      <Experiences name="Past Jobs" title={t("pastJobs")} experiences={cv.pastJobs}/>
       <hr/>
       <Technologies resume={cv}/>
       <hr/>
