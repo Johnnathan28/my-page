@@ -40,4 +40,6 @@ class Translator {
   }
 }
 
-export default new Translator();
+const Singleton = new Translator();
+
+export default Singleton;
