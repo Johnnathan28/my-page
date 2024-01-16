@@ -4,9 +4,10 @@ on: [push]
 jobs:
   print:
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - uses: actions/checkout@v4
-      - run: echo ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - run: echo "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
   build:
     runs-on: ubuntu-latest
     steps:
